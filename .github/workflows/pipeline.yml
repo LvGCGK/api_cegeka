@@ -47,10 +47,10 @@ jobs:
         task-definition: task-definition.json
         container-name: AlbumContainer
         image: 201365199824.dkr.ecr.us-east-1.amazonaws.com/cegeka/api:${{github.run_number}}
-#    - name: Deploy Amazon ECS task definition
-#      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-#      with:
-#        task-definition: ${{ steps.task-def.outputs.task-definition }}
-#        service: AlbumServiceBlueGreen
-#        cluster: AlbumCluster
-#        wait-for-service-stability: true
+    - name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: AlbumServiceBlueGreen
+        cluster: AlbumCluster
+        wait-for-service-stability: true
